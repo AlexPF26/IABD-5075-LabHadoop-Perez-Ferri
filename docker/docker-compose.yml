@@ -10,9 +10,9 @@ services:
       - ./config
     environment:
       ENSURE_NAMENODE_DIR: "/tmp/hadoop-root/dfs/name"
+
     networks:
       - hadoop-net
-
 
   datanode1:
     image: apache/hadoop:3
@@ -26,7 +26,6 @@ services:
     networks:
       - hadoop-net
 
-
   datanode2:
     image: apache/hadoop:3
     container_name: datanode2
@@ -39,7 +38,6 @@ services:
     networks:
       - hadoop-net
 
-
   datanode3:
     image: apache/hadoop:3
     container_name: datanode3
@@ -51,7 +49,6 @@ services:
       - namenode
     networks:
       - hadoop-net
-
 
   resourcemanager:
     image: apache/hadoop:3
@@ -67,7 +64,6 @@ services:
     networks:
       - hadoop-net
 
-
   nodemanager:
     image: apache/hadoop:3
     container_name: nodemanager
@@ -79,7 +75,6 @@ services:
       - resourcemanager
     networks:
       - hadoop-net
-
 
 networks:
   hadoop-net:
