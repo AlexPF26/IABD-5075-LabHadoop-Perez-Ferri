@@ -1,6 +1,6 @@
 ﻿# Laboratorio Hadoop en Docker
 
-Despliegue de un clúster Apache Hadoop 3 para practicar almacenamiento distribuido con HDFS y ejecución de trabajos MapReduce mediante YARN. La infraestructura se define con Docker Compose en `docker/docker-compose.yml`.
+Despliegue de un clúster Apache Hadoop 3 como practica evaluativa. Se trabaja con almacenamiento distribuido con HDFS y ejecución de trabajos MapReduce mediante YARN.
 
 ## Ficha de arquitectura
 
@@ -24,28 +24,24 @@ Los servicios resuelven sus nombres dentro de la red de Compose. HDFS anuncia `h
 
 ## Arranque
 
-Desde la raíz del repositorio, descarga la imagen si es necesario y arranca los seis servicios en segundo plano:
+Desde la carpeta docker:
 
 ```bash
-docker compose -f docker/docker-compose.yml up -d
+docker compose up -d
 ```
 
 Comprueba el estado de los contenedores:
 
 ```bash
-docker compose -f docker/docker-compose.yml ps
+docker compose ps
 ```
 
-Consulta las interfaces web en [NameNode](http://localhost:9870) y [ResourceManager](http://localhost:8088). La inicialización puede tardar unos instantes; si no aparecen activos, revisa los registros:
-
-```bash
-docker compose -f docker/docker-compose.yml logs -f
-```
+Consulta las interfaces web en [NameNode](http://localhost:9870) y [ResourceManager](http://localhost:8088).
 
 Para detener y retirar los contenedores:
 
 ```bash
-docker compose -f docker/docker-compose.yml down
+docker compose down
 ```
 
 El Compose no declara volúmenes persistentes; al retirar los contenedores con `down`, los datos guardados dentro de ellos no se conservan.
